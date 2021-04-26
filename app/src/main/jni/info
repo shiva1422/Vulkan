@@ -1,0 +1,9 @@
+steps:
+   1.Instance and Physical Device Selection;
+   2.Logical Device and queue families.
+   3.Window Surface and swap chain;
+   4.ImageViews and framebuffers;
+   5.Render Passes
+   6.Graphics pipeline
+   7.Command pools and command buffers;
+   8.MainLoop

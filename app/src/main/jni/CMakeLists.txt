@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10.2)
+add_library(glue STATIC ${ANDROID_NDK}/sources/android/native_app_glue/android_native_app_glue.c)
+target_include_directories(glue PUBLIC ${ANDROID_NDK}/sources/android/native_app_glue)
+include_directories(${ANDROID_NDK}/sources/android/native_app_glue)
+find_library(log-lib log)
+set(CMAKE_SHARED_LINKER_FLAGS  "${CMAKE_SHARED_LINKER_FLAGS} -u ANativeActivity_onCreate")
+add_library(main SHARED Main.cpp vulkan_wrapper.cpp Vulkan.cpp Commons.cpp Graphics.cpp AndriodEvents.cpp)
+target_link_libraries(main glue android ${log-lib})

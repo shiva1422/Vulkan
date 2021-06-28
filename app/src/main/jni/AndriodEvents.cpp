@@ -4,9 +4,15 @@
 
 #include "AndriodEvents.h"
 #include "Commons.h"
-#include "Vulkan.h"
+#include "KVulkan.h"
+#include "AppContext.h"
 
-void AndriodEvents::onCmd(android_app *app, int32 cmd)
+int32_t AndriodEvents::onInputEvent(android_app *app, AInputEvent *event)
+{
+    Loge("Ihnput ","touched %d",AMotionEvent_getAction(event));
+    return 1;
+}
+void AndriodEvents::onAppCmd(android_app *app, int32 cmd)
 {
     switch (cmd)
     {
@@ -17,7 +23,8 @@ void AndriodEvents::onCmd(android_app *app, int32 cmd)
 
         case APP_CMD_INIT_WINDOW:
         {
-            Vulkan::initialize(app);
+            AppContext *appContext = (AppContext *)app->userData;
+            appContext->onWindowInit();
           //  hideSystemUI(app);
             //  CallbacksLog("the window h is %d and the window w is %d",ANativeWindow_getHeight(app->window),ANativeWindow_getWidth(app->window));
         }

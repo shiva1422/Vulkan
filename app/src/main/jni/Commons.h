@@ -5,6 +5,7 @@
 #ifndef VULKAN_COMMONS_H
 #define VULKAN_COMMONS_H
 #include <stdint.h>
+#include <android_native_app_glue.h>
 #include "android/log.h"
 typedef int32_t int32 ;
 #define Loge(...)((void)__android_log_print(ANDROID_LOG_ERROR,__VA_ARGS__))

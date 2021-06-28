@@ -1,3 +1,6 @@
+
+
+
 steps:
    1.Instance and Physical Device Selection;
    2.Logical Device and queue families.
@@ -7,3 +10,25 @@ steps:
    6.Graphics pipeline
    7.Command pools and command buffers;
    8.MainLoop
+
+
+ //Resource Management
+         Vulkan objects created with functs vkCreateXXX or allocated through another object with functions like vkAllocate and when no longer needed destroyed with vkDestroyXXX,vkFreeXXX.
+         all these functions have one common parameter pAllocator which is optional that allows to specify callbacks for a custom Memory Allocator.
+
+
+ //1.Instance and  Physical Device selection.
+
+    Instance is connection between application and vulkan and while crating it we specify some details about the application to the driver.
+    VKApplicationInfo Struct
+            // Provided by VK_VERSION_1_0
+            typedef struct VkApplicationInfo {
+                VkStructureType    sType;//type of this structure (almost all vulkan structs have this)
+                const void*        pNext;//is NULL or pointer to a structure extending this structure(point to extensions in future).
+                const char*        pApplicationName;
+                uint32_t           applicationVersion;
+                const char*        pEngineName;
+                uint32_t           engineVersion;
+                uint32_t           apiVersion;
+            } VkApplicationInfo;
+

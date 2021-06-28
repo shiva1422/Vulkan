@@ -10,7 +10,8 @@
 class AndriodEvents {
 
 public:
-    static void onCmd(android_app *app,int32 cmd);
+    static int32_t onInputEvent(android_app* papp, AInputEvent* event);
+    static void onAppCmd(android_app* app, int32_t cmd);
 
 };
 

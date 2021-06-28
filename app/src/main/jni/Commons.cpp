@@ -3,4 +3,5 @@
 //
 
 #include "Commons.h"
+
 float DisplayParams::screenHeight=0;
